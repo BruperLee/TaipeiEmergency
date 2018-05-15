@@ -1,15 +1,44 @@
 <!doctype html>
-<html>
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <title>webpack ES6 Start Kit</title>
+    <title>臺北市最新災情資料查詢</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="src/styles/style.css">
 </head>
 <body>
-<h2>ES6 Everyday!</h2>
+    <header>
+        <form class="form">
+            <h1>臺北市最新災情資料查詢</h1>
+            <p>提供全區最新動態、各區資訊</p>
+            <select class="select-area"></select>
+        </form>
+    </header>
 
-<div id="content"></div>
+    <div class="container">
+        <div class="row mt-2">
+            <div class="col-12">
+                <table class="table table-hover">
+                    <thead class="thead-default">
+                        <tr>
+                            <th>發生時間</th>
+                            <th>行政區</th>
+                            <th>詳細位置</th>
+                            <th>描述</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tbody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
-<script src="./build/bundle.js"></script>
+    <footer>
+        <a href="https://taipeicity.github.io/eoc_119/" target="_blank">資料來源：臺北市政府消防局</a>
+    </footer>
+
+    <script src="./build/bundle.js"></script>
 
 </body>
 </html>

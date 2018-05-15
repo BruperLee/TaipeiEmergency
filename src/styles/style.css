@@ -1,0 +1,60 @@
+html {
+  box-sizing: border-box;
+  background: #eeeeee;
+}
+
+body,input,button,select,textarea {
+  font-family: "Helvetica Neue", Helvetica, Arial, "微軟正黑體", "微软雅黑", "メイリオ", "맑은 고딕", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;  
+}
+
+body {
+  margin: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+header {
+  text-align: center;
+  height: 100vh;
+  background: url(../images/20160410.JPG) bottom center no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;     /*垂直置中*/
+  justify-content: center; /*水平置中*/
+}
+
+form h1 {
+  font-size: 50px;
+  font-weight: bold;
+  color: #eee;
+}
+
+form p {
+  font-size: 25px;
+  font-weight: bold;
+  color: #eee;
+}
+.select-area {
+  width: 50%;
+  height: 44px;
+  margin-top: 15px;
+  border: 2px solid #ddd;
+  background-color: #FFF;
+}
+
+footer {
+  border-top: solid 1px #dbe0df;
+  background-color: #ffffff;
+  padding: 10px;
+  text-align: center;
+  font-size: 1em;
+  color: #002122;
+}
