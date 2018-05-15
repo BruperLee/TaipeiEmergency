@@ -2,11 +2,50 @@
 
 const dataUrl = 'https://tcgbusfs.blob.core.windows.net/blobfs/GetDisasterSummary.json';
 const dataList = [];
+const markerList = [];
 const areaList = [];
 let filterData = [];
+let map;
 
 const contentSelect = document.querySelector('.select-area');
 const tbody = document.querySelector('.tbody');
+
+function initMap() {
+    map = new google.maps.Map(document.querySelector('.map'), {
+        center: { lat: 25.050592, lng: 121.539384 },
+        zoom: 12
+    });
+}
+
+function createMap() {
+    if (filterData.length === 0) {
+        return;
+    }
+
+    map = new google.maps.Map(
+        document.querySelector('.map'),
+        {
+            center: { lat: parseFloat(filterData[0].Wgs84Y), lng: parseFloat(filterData[0].Wgs84X) },
+            zoom: 14,
+        }
+    );
+}
+
+function initMarker() {
+    for (var i = 0; i < filterData.length; i++) {
+        const address = filterData[i].CaseLocationDescription;
+        const name = filterData[i].PName;
+        const caseID = filterData[i].CaseID;
+
+        const marker = new google.maps.Marker({
+            position: { lat: parseFloat(filterData[i].Wgs84Y), lng: parseFloat(filterData[i].Wgs84X) },
+            map: map,
+            title: name, address, caseID
+        });
+
+        markerList.push(marker);
+    }
+}
 
 function setAreaList() {
     dataList.forEach(value => {
@@ -38,6 +77,8 @@ function selectArea() {
         return;
     }
 
+    createMap();
+    initMarker();
     creatTable();
 }
 
@@ -83,3 +124,4 @@ fetch(dataUrl, { method: 'GET' })
 );
 
 contentSelect.addEventListener('change', selectArea);
+initMap();

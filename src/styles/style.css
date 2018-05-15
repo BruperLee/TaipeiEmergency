@@ -50,6 +50,16 @@ form p {
   background-color: #FFF;
 }
 
+.info-tr {
+  cursor: pointer; /*改變滑鼠圖標*/
+}
+
+.map {
+  margin: 20px auto 0;
+  height: 400px;
+  width: 80%; 
+}
+
 footer {
   border-top: solid 1px #dbe0df;
   background-color: #ffffff;
