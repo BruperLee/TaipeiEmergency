@@ -9,6 +9,7 @@ let map;
 
 const contentSelect = document.querySelector('.select-area');
 const tbody = document.querySelector('.tbody');
+const infowindow = new google.maps.InfoWindow();
 
 function initMap() {
     map = new google.maps.Map(document.querySelector('.map'), {
@@ -44,6 +45,10 @@ function initMarker() {
         });
 
         markerList.push(marker);
+
+        google.maps.event.addListener(marker, 'click', function() { 
+            showInfo(this);
+        });
     }
 }
 
@@ -101,6 +106,29 @@ function creatTable () {
     });
 
     tbody.innerHTML = table.join('');
+
+    const infoTrs = document.querySelectorAll('.info-tr');
+    infoTrs.forEach(infoTr => infoTr.addEventListener('click', handleInfoTrClicked));
+}
+
+function handleInfoTrClicked (e) {
+    const marker = markerList.filter(value => (value.caseID) === e.currentTarget.getAttribute('caseID'));
+
+    showInfo(marker[0]);
+}
+
+function showInfo (markerObj) {
+    infowindow.setContent(infoContent(markerObj));
+    
+    infowindow.open(map, markerObj);
+}
+
+function infoContent(markerObj) {
+    return (`<ul id="${markerObj.caseID}" style="list-style:none;">
+                <li>名稱: ${markerObj.title}</li>
+                <li>詳細位置: ${markerObj.address}</li>
+            </ul>
+            `);
 }
 
 fetch(dataUrl, { method: 'GET' })
