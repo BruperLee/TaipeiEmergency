@@ -33,7 +33,7 @@ function createMap() {
 }
 
 function initMarker() {
-    for (var i = 0; i < filterData.length; i++) {
+    for (let i = 0; i < filterData.length; i++) {
         const address = filterData[i].CaseLocationDescription;
         const name = filterData[i].PName;
         const caseID = filterData[i].CaseID;

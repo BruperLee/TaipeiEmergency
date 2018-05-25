@@ -68,3 +68,13 @@ footer {
   font-size: 1em;
   color: #002122;
 }
+
+@media screen and (max-width: 735px) {
+  form h1 {
+    font-size: 28px;
+  }
+  
+  form p {
+    font-size: 16px;
+  }
+}
