@@ -2,7 +2,3 @@
 node_modules
 no_use
 .vscode
-
-# Built by webpack
-bundle.js
-bundle.js.map
